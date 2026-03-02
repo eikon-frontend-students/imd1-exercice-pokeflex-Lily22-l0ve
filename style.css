@@ -29,3 +29,200 @@
  * Bon courage ! 🎨
  * =====================================================
  */
+body {
+  background-color: #2b65bc;
+  color: #82d9b0;
+  font-family: "Righteous", sans-serif;
+  font-size: 20px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 255, 255, 0.15),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 70% 60%,
+      rgba(255, 255, 255, 0.1),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 50% 80%,
+      rgba(255, 255, 255, 0.12),
+      transparent 40%
+    );
+  background-size: 300px 300px;
+  animation: caustics 12s linear infinite;
+  pointer-events: none;
+}
+@keyframes caustics {
+  from {
+    background-position:
+      0 0,
+      100px 200px,
+      200px 100px;
+  }
+  to {
+    background-position:
+      300px 300px,
+      400px 500px,
+      500px 400px;
+  }
+}
+
+h1 {
+  font-size: 60px;
+  margin: 0px 50px;
+}
+.header-flex {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: #45d0a257;
+}
+.header-img {
+  width: 170px;
+  height: auto;
+  left: 200px;
+  display: flex;
+  justify-content: left;
+  order: 1;
+}
+
+.header-img2 {
+  width: 170px;
+  height: auto;
+  right: 200px;
+  display: flex;
+  justify-content: right;
+}
+
+.search-helper {
+  font-size: 16px;
+}
+
+.main-flex {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.card-flex {
+  background-color: azure;
+  margin: 25px;
+  padding: 30px;
+  border-radius: 30px;
+  transition: transform 0.3s ease;
+  color: #2b65bc;
+  font-size: 25px;
+}
+
+.search-input {
+  border-radius: 20px;
+  padding: 4px;
+  color: #2b65bc;
+  font-size: 16px;
+  font-family: "Righteous", sans-serif;
+  background-color: aliceblue;
+}
+
+.card-image-flex {
+  background-color: #82d9b084;
+  border-radius: 30px;
+}
+
+.search-button {
+  font-size: 16px;
+  font-family: "Righteous", sans-serif;
+  color: #2b65bc;
+  border-radius: 10px;
+  background-color: aliceblue;
+}
+
+.card-info-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-types-flex {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.stat-row-flex {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  text-transform: uppercase;
+  background-color: #82d9b084;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 20px;
+  opacity: 78%;
+  font-size: 17px;
+}
+
+.card-flex:hover {
+  transform: scale(1.03);
+}
+
+.card-flex {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-flex::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background: linear-gradient(
+    115deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.4) 40%,
+    rgba(130, 217, 176, 0.5) 50%,
+    rgba(120, 200, 255, 0.4) 60%,
+    transparent 75%
+  );
+
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  mix-blend-mode: overlay;
+}
+
+.card-flex:hover::before {
+  opacity: 1;
+  animation: holoShift 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes holoShift {
+  0% {
+    transform: translateX(-30%) translateY(-20%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(30%) translateY(20%) rotate(3deg);
+  }
+}
+
+.card-flex:hover {
+  box-shadow:
+    0 0 25px rgba(130, 217, 176, 0.6),
+    0 0 60px rgba(120, 200, 255, 0.3),
+    0 15px 40px rgba(0, 0, 0, 0.35);
+
+  transform: translateY(-6px) scale(1.02);
+}
